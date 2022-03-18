@@ -1,0 +1,11 @@
+framework module Phacturas {
+  umbrella header "Phacturas.h"
+
+  export *
+  module * { export * }
+}
+
+module Phacturas.Swift {
+    header "Phacturas-Swift.h"
+    requires objc
+}

@@ -1,0 +1,38 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios10.2 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Phacturas
+import AVFoundation
+import Foundation
+@_exported import Phacturas
+import Swift
+import UIKit
+import _Concurrency
+public protocol WidgetResultDelegate {
+  func invoiceScanConfirmed(invoiceImage: Phacturas.InvoiceImage?, error: Swift.Error?)
+}
+final public class Widget {
+  final public var acceptButtonText: Swift.String?
+  final public var takeAgainButtonText: Swift.String?
+  final public var captureButtonText: Swift.String?
+  final public var descriptionBeforeCapture: Swift.String?
+  final public var descriptionAfterCapture: Swift.String?
+  final public var alertTitleDescription: Swift.String?
+  final public var alertMessageDescription: Swift.String?
+  public init(delegate: Phacturas.WidgetResultDelegate)
+  final public func getInitialViewController() -> UIKit.UIViewController?
+  @objc deinit
+}
+public struct InvoiceImage {
+  public var invoiceImage: UIKit.UIImage
+}
+extension ObjectiveC.NSObject {
+  public var className: Swift.String {
+    get
+  }
+  public class var className: Swift.String {
+    get
+  }
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func addRoundCornerWithStroke(roundness: CoreGraphics.CGFloat, thickness: CoreGraphics.CGFloat, borderColor: CoreGraphics.CGColor? = nil)
+}
