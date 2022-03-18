@@ -10,6 +10,8 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Set env
+      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
     
     - name: Install Cocoapods
       run: gem install cocoapods
@@ -17,6 +19,6 @@ jobs:
     - name: Deploy to Cocoapods
       run: |
         set -eo pipefail 
-        pod trunk push FPhiPhacturas//FPhiPhacturas.podspec --allow-warnings
+        pod trunk push FPhiPhacturas/$RELEASE_VERSION/FPhiPhacturas.podspec --allow-warnings
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
