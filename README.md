@@ -1,0 +1,1 @@
+# phacturas-ios-podspec
